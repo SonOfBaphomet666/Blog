@@ -1,2 +1,0 @@
-# Blog
-React and astro
