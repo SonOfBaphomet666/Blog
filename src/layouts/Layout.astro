@@ -1,6 +1,8 @@
 ---
-import "./main.scss";
-import Card from "../components/Card/Card.jsx";
+import "../style/main.scss";
+import Home from "../pages/home.astro";
+import Header from "../components/Header.astro";
+// import About from "../pages/about.astro";
 ---
 
 <!doctype html>
@@ -8,9 +10,11 @@ import Card from "../components/Card/Card.jsx";
   <style lang="scss" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
   <title>Astro</title>
   <body>
-    <Card />
+    <Header />
+    <Home />
     <!-- <slot /> -->
   </body>
 </html>

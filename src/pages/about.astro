@@ -1,0 +1,59 @@
+---
+import "../style/main.scss";
+const pageTitle = "About me";
+
+const identity = {
+  firstName: "Maxim",
+  country: "Inferno",
+  occupation: "Coach",
+  hobbies: ["Breaking", "Tattoo", "Programming"],
+};
+
+const skills = ["HTML", "SASS", "JavaScript", "React", "Astro"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const textCase = "uppercase"
+---
+
+<div class="About">
+  <h1 class="About__title">{pageTitle}</h1>
+  <p class="About__par">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam aliquam
+    veniam, quas eius veritatis perspiciatis. Maxime, dignissimos possimus.
+    Doloremque voluptatem quasi molestiae.
+  </p>
+
+  <p class="About__par">Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+    {
+      identity.hobbies.length >= 3 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]},{identity.hobbies[1]} and{" "}
+          {identity.hobbies[2]}
+        </li>
+      )
+    }
+  </ul>
+  <p>My skills are:</p>
+  <ul>
+    {skills.map((skill) => <li>{skill}</li>)}
+  </ul>
+</div>
+
+{happy && <p>I am happy to be learing Astro!</p>}
+
+{finished && <p>I finished this tutorial!</p>}
+
+{
+  goal === 3 ? (
+    <p>My goal is to finish in 3 days.</p>
+  ) : (
+    <p>My goal is not 3 days.</p>
+  )
+}
+
