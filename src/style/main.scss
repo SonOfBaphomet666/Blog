@@ -1,9 +1,22 @@
 @import "/src/utils/variables.scss";
 @import "/src/utils/text.scss";
 
+@import "/src/pages/home/home.scss";
 
+@import "/src/components/card/card.scss";
+@import "/src/components/hamburger/hamburger.scss";
+@import "/src/components/navigation/navigation.scss";
+@import "/src/components/footer/footer.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 html,
 body {
   margin: 0;
   padding: 0;
+  font-family: "Montserrat", serif;
+}
+
+main {
+  display: grid;
+  justify-content: center;
 }

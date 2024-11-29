@@ -1,0 +1,75 @@
+nav {
+  height: 65px;
+  display: grid;
+  justify-content: center;
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 1400px;
+    height: 65px;
+    &__logoBox {
+      display: grid;
+      width: 260px;
+      font-size: 24px;
+      text-align: center;
+      align-items: center;
+    }
+
+    &__linkBox {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      align-items: center;
+      width: 350px;
+      grid-column: 4;
+      .link {
+        color: $black;
+        font-size: 18px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// .nav {
+//     width: 100%;
+//     top: 5rem;
+//     left: 48px;
+//     background-color: #ff9776;
+//     display: none;
+//     margin: 0;
+
+//     &__link {
+//       display: block;
+//       text-align: center;
+//       padding: 10px 0;
+//       text-decoration: none;
+//       font-size: 1.2rem;
+//       font-weight: bold;
+//       text-transform: uppercase;
+
+//       &:hover,
+//       &:focus {
+//         background-color: #ff9776;
+//       }
+//     }
+//   }
+
+//   @media screen and (min-width: 636px) {
+//     .nav {
+//       margin-left: 5em;
+//       display: block;
+//       position: static;
+//       width: auto;
+//       background: none;
+
+//       &__link {
+//         display: inline-block;
+//         padding: 15px 20px;
+//       }
+//     }
+
+//     .hamburger {
+//       display: none;
+//     }
+//   }

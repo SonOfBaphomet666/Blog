@@ -1,0 +1,29 @@
+.card {
+  display: grid;
+  width: 1024px;
+
+  .cardBox {
+    width: 600px;
+    box-shadow: $shadowCard;
+    border: 1px solid #00000011;
+    border-radius: 20px;
+    margin-bottom: 64px;
+    &__box {
+      padding: 20px;
+    }
+    &__title {
+      width: 50px;
+      margin-bottom: 14px;
+    }
+    &__date {
+      margin-bottom: 14px;
+      width: 100px;
+    }
+    &__par {
+      line-height: 26px;
+    }
+    &:nth-child(even) {
+      margin-left: auto;
+    }
+  }
+}

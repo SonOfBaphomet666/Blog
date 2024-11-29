@@ -1,0 +1,21 @@
+.hero {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.titleBox {
+  margin-right: 100px;
+  width: 500px;
+  margin-bottom: 64px;
+  &__title {
+    margin-bottom: 16px;
+  }
+  &__par {
+    .pars {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+}
