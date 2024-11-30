@@ -1,59 +1,69 @@
 ---
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/footer/Footer.astro";
 import "../style/main.scss";
-const pageTitle = "About me";
 
+const pageTitle = "About me";
 const identity = {
   firstName: "Maxim",
   country: "Inferno",
-  occupation: "Coach",
+  occupation: "coach",
   hobbies: ["Breaking", "Tattoo", "Programming"],
 };
-
-const skills = ["HTML", "SASS", "JavaScript", "React", "Astro"];
-
-const happy = true;
-const finished = false;
-const goal = 3;
-
-const textCase = "uppercase"
+const skills = ["HTML", "SASS", "JavaScript", "React", "Astro", "Express"];
 ---
 
-<div class="About">
-  <h1 class="About__title">{pageTitle}</h1>
-  <p class="About__par">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam aliquam
-    veniam, quas eius veritatis perspiciatis. Maxime, dignissimos possimus.
-    Doloremque voluptatem quasi molestiae.
-  </p>
-
-  <p class="About__par">Here are a few facts about me:</p>
-  <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-    {
-      identity.hobbies.length >= 3 && (
-        <li>
-          Two of my hobbies are: {identity.hobbies[0]},{identity.hobbies[1]} and{" "}
-          {identity.hobbies[2]}
-        </li>
-      )
-    }
-  </ul>
-  <p>My skills are:</p>
-  <ul>
-    {skills.map((skill) => <li>{skill}</li>)}
-  </ul>
+<Header />
+<Hero />
+<div class="about">
+  <div class="about__box">
+    <div class="info">
+      <h1 class="info__title">{pageTitle}</h1>
+      <p class="info__par">
+        Hello! My name is {identity.firstName}. I live in {identity.country} and
+        I work as a {identity.occupation}. Three of my hobbies are: {
+          identity.hobbies[0]
+        },{identity.hobbies[1]}
+        and {identity.hobbies[2]}.
+      </p>
+    </div>
+    <div class="skillBox">
+      <p>My skills are:</p>
+      <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </div>
+  </div>
 </div>
+<Footer />
 
-{happy && <p>I am happy to be learing Astro!</p>}
+<style lang="scss">
+  .about {
+    display: grid;
+    justify-content: center;
 
-{finished && <p>I finished this tutorial!</p>}
+    &__box {
+      width: 1024px;
+      height: 666px;
+      margin-top: 30px;
+    }
 
-{
-  goal === 3 ? (
-    <p>My goal is to finish in 3 days.</p>
-  ) : (
-    <p>My goal is not 3 days.</p>
-  )
-}
+    .info {
+      width: 570px;
 
+      &__title {
+        margin-bottom: 10px;
+      }
+
+      &__par {
+        line-height: 26px;
+      }
+    }
+
+    .skillBox {
+      margin-top: 30px;
+      line-height: 22px;
+    }
+  }
+</style>
