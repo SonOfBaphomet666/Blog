@@ -30,9 +30,51 @@ nav {
     }
   }
 
+  @media screen and (max-width: $pc) {
+    .nav {
+      width: 1200px;
+
+      &__logoBox {
+        font-size: 22px;
+      }
+
+      &__linkBox {
+        .link {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
   @media screen and (max-width: $tab-port) {
-.nav {
+    .nav {
+      width: 900px;
+    }
+  }
+  @media screen and (max-width: $tab-port-small) {
+    .nav {
+      width: 768px;
+      &__logoBox {
+        width: 200px;
+        margin-left: 20px;
+      }
+      &__logoBox h3 {
+        font-size: 20px;
+      }
+
+      &__linkBox {
+        width: 250px;
+        margin-right: 20px;
+        .link {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $phone) {
+    .nav {
+      width: 390px;
+    }
+  }
 }
-  }
-    
-  }

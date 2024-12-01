@@ -26,4 +26,14 @@
       margin-left: auto;
     }
   }
+
+  @media screen and (max-width: $tab-port-small) {
+    width: 768px;
+
+    .cardBox {
+      width: 450px;
+      margin-left: 20px;
+      margin-right: 20px
+    }
+  }
 }
