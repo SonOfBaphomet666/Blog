@@ -1,3 +1,4 @@
-document.querySelector(".hamburger").addEventListener("click", () => {
-    document.querySelector(".nav").classList.toggle("expanded");
+let hamburger = document.querySelector('.hamburger');
+hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('open');
 })
