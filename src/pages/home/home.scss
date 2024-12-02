@@ -11,4 +11,20 @@
       line-height: 26px;
     }
   }
+  @media screen and (max-width: $tab-port) {
+    margin-left: 20px;
+    &__title h2 {
+      font-size: 20px;
+    }
+    .pars {
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: $tab-port) {
+    width: 300px;
+  }
+
+  @media screen and (max-width: $phone-small) {
+    margin-right: 0;
+  }
 }

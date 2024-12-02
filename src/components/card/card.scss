@@ -26,14 +26,37 @@
       margin-left: auto;
     }
   }
-
-  @media screen and (max-width: $tab-port-small) {
-    width: 768px;
-
+  @media screen and (max-width: $tab-port) {
+    .cardBox {
+      width: 550px;
+      margin-left: 20px;
+      margin-right: 20px;
+      &__par p {
+        font-size: 16px;
+      }
+      &__date p {
+        font-size: 16px;
+      }
+    }
+  }
+  @media screen and (max-width: $tab-port-middle) {
+    width: 800px;
     .cardBox {
       width: 450px;
-      margin-left: 20px;
-      margin-right: 20px
     }
+  }
+  @media screen and (max-width: $tab-port-small) {
+    width: 768px;
+  }
+
+  @media screen and (max-width: $phone) {
+    width: 430px;
+
+    .cardBox {
+      width: 300px;
+    }
+  }
+  @media screen and (max-width: $phone-small) {
+    width: 390px;
   }
 }

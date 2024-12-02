@@ -49,11 +49,15 @@ nav {
   @media screen and (max-width: $tab-port) {
     .nav {
       width: 900px;
+      .link {
+        font-size: 20px;
+      }
     }
   }
-  @media screen and (max-width: $tab-port-small) {
+
+  @media screen and (max-width: $tab-port-middle) {
     .nav {
-      width: 768px;
+      width: 800px;
       &__logoBox {
         width: 200px;
         margin-left: 20px;
@@ -61,18 +65,43 @@ nav {
       &__logoBox h3 {
         font-size: 20px;
       }
-
       &__linkBox {
         width: 250px;
         margin-right: 20px;
+
         .link {
           font-size: 16px;
         }
       }
     }
   }
+  @media screen and (max-width: $tab-port-small) {
+    .nav {
+      width: 768px;
+    }
+  }
 
   @media screen and (max-width: $phone) {
+    .nav {
+      width: 430px;
+
+      &__logoBox {
+        width: 150px;
+      }
+      &__logoBox h3 {
+        font-size: 18px;
+      }
+      &__linkBox {
+        width: 200px;
+
+        .link {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $phone-small) {
     .nav {
       width: 390px;
     }
