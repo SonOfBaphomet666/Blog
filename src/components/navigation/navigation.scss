@@ -81,7 +81,7 @@ nav {
     }
   }
 
-  @media screen and (max-width: $phone) {
+  @media screen and (max-width: $phone-big) {
     .nav {
       width: 430px;
 
@@ -92,7 +92,8 @@ nav {
         font-size: 18px;
       }
       &__linkBox {
-        width: 200px;
+        visibility: hidden;
+        // width: 200px;
 
         .link {
           font-size: 14px;
@@ -100,10 +101,34 @@ nav {
       }
     }
   }
+  @media screen and (max-width: $phone) {
+    .nav {
+      width: 414px;
+    }
+  }
+
+  @media screen and (max-width: $phone-middle) {
+    .nav {
+      width: 390px;
+    }
+  }
+
+  @media screen and (max-width: 390px) {
+    .nav {
+      width: 390px;
+    }
+  }
 
   @media screen and (max-width: $phone-small) {
     .nav {
-      width: 390px;
+      width: 375px;
+
+      &__logoBox {
+        width: 120px;
+      }
+      &__linkBox {
+        width: 150px;
+      }
     }
   }
 }

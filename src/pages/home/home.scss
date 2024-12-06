@@ -24,7 +24,9 @@
     width: 300px;
   }
 
-  @media screen and (max-width: $phone-small) {
+  @media screen and (max-width: $phone-middle) {
     margin-right: 0;
   }
+
+  
 }

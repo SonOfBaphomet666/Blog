@@ -43,20 +43,38 @@
     width: 800px;
     .cardBox {
       width: 450px;
+      margin-left: 20px;
     }
   }
   @media screen and (max-width: $tab-port-small) {
     width: 768px;
   }
 
-  @media screen and (max-width: $phone) {
+  @media screen and (max-width: $phone-big) {
     width: 430px;
 
     .cardBox {
       width: 300px;
     }
   }
-  @media screen and (max-width: $phone-small) {
+
+  @media screen and (max-width: $phone) {
+    width: 414px;
+
+    .cardBox {
+      margin-left: 20px;
+    }
+  }
+
+  @media screen and (max-width: $phone-middle) {
     width: 390px;
+  }
+  
+  @media screen and (max-width: $phone-small) {
+    width: 375px;
+
+    .cardBox {
+      margin-left: 20px;
+    }
   }
 }
