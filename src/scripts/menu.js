@@ -1,4 +1,4 @@
-let hamburger = document.querySelector('.hamburger');
-hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('open');
+let menu = document.querySelector('.menu');
+menu.addEventListener('click', function () {
+    menu.classList.toggle('open');
 })

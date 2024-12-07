@@ -2,14 +2,17 @@ nav {
   height: 65px;
   display: grid;
   justify-content: center;
+  align-items: center;
+
   .nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 1400px;
     height: 65px;
+    width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     &__logoBox {
       display: grid;
       width: 260px;
+      height: 65px;
       font-size: 24px;
       text-align: center;
       align-items: center;
@@ -21,10 +24,11 @@ nav {
       text-align: center;
       align-items: center;
       width: 350px;
+      height: 65px;
       grid-column: 4;
       .link {
         color: $black;
-        font-size: 18px;
+        font-size: 20px;
         text-decoration: none;
       }
     }
@@ -84,20 +88,16 @@ nav {
   @media screen and (max-width: $phone-big) {
     .nav {
       width: 430px;
+      grid-template-columns: repeat(2, 1fr);
 
       &__logoBox {
-        width: 150px;
+        width: 160px;
       }
       &__logoBox h3 {
         font-size: 18px;
       }
       &__linkBox {
-        visibility: hidden;
-        // width: 200px;
-
-        .link {
-          font-size: 14px;
-        }
+        display: none;
       }
     }
   }
@@ -110,6 +110,7 @@ nav {
   @media screen and (max-width: $phone-middle) {
     .nav {
       width: 390px;
+      display: grid;
     }
   }
 
@@ -122,13 +123,6 @@ nav {
   @media screen and (max-width: $phone-small) {
     .nav {
       width: 375px;
-
-      &__logoBox {
-        width: 120px;
-      }
-      &__linkBox {
-        width: 150px;
-      }
     }
   }
 }
