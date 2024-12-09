@@ -1,77 +1,26 @@
+---
+const allPosts = Object.values(
+  await import.meta.glob("../../pages/posts/*.md", { eager: true }),
+);
+---
+
 <div class="card">
-  <div class="cardBox">
-    <div class="cardBox__box">
-      <div class="cardBox__title">
-        <h3>Title1</h3>
+  {
+    allPosts.map((post: any) => (
+      <div class="cardBox">
+        <div class="cardBox__box">
+          <div class="cardBox__title">
+            <h3>{post.frontmatter.title}</h3>
+          </div>
+          <div class="cardBox__date">
+            <p>{post.frontmatter.pubDate.toString().slice(0, 10)}</p>
+          </div>
+          <div class="cardBox__par">
+            <p>{post.frontmatter.description}</p>
+            <a href={post.url}>Here!</a>
+          </div>
+        </div>
       </div>
-      <div class="cardBox__date">
-        <p>13.12.2024</p>
-      </div>
-      <div class="cardBox__par">
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters.<p>Read more <a href="/posts/post-1">Here!</a></p>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cardBox">
-    <div class="cardBox__box">
-      <div class="cardBox__title">
-        <h3>Title2</h3>
-      </div>
-      <div class="cardBox__date">
-        <p>13.12.2024</p>
-      </div>
-      <div class="cardBox__par">
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters.<p>Read more <a href="/posts/post-4">Here!</a></p>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cardBox">
-    <div class="cardBox__box">
-      <div class="cardBox__title">
-        <h3>Title3</h3>
-      </div>
-      <div class="cardBox__date">
-        <p>13.12.2024</p>
-      </div>
-      <div class="cardBox__par">
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters,
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cardBox">
-    <div class="cardBox__box">
-      <div class="cardBox__title">
-        <h3>Title4</h3>
-      </div>
-      <div class="cardBox__date">
-        <p>13.12.2024</p>
-      </div>
-      <div class="cardBox__par">
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters,
-        </p>
-      </div>
-    </div>
-  </div>
+    ))
+  }
 </div>
