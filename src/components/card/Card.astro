@@ -1,4 +1,6 @@
 ---
+import { getCollection } from "astro:content";
+
 const allPosts = Object.values(
   await import.meta.glob("../../pages/posts/*.md", { eager: true }),
 );
@@ -24,3 +26,10 @@ const allPosts = Object.values(
     ))
   }
 </div>
+
+<style lang="scss">
+  button {
+    width: 50px;
+    height: 30px;
+  }
+</style>

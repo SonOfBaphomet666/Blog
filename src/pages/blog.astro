@@ -1,6 +1,7 @@
 ---
 import "../style/main.scss";
 import Header from "../components/Header.astro";
+import Greeting from "../components/Greeting";
 import Footer from "../components/footer/Footer.astro";
 const allPosts = await import.meta.glob("../pages/posts/*.md", {
   eager: true,
@@ -18,3 +19,5 @@ const postsArray = Object.values(allPosts);
     ))
   }
 </ul>
+<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+

@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+src/pages/posts/post-2.md
+src/pages/index.astro
+src/pages/layoutArticleDetails.astro
