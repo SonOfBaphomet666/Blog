@@ -1,38 +1,21 @@
 ---
+import "../style/main.scss";
 const { frontmatter } = Astro.props;
 ---
 
-<h1>{frontmatter.title}</h1>
-<p>Written by {frontmatter.author}</p>
-<p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-
-<div class="tags">
-  {
-    frontmatter.tags.map((tag: string) => (
-      <p class="tag">
-        <a href={`/tags/${tag}`}>{tag}</a>
-      </p>
-    ))
-  }
+<div class="post">
+  <h1>{frontmatter.title}</h1>
+  <div class="post__box">
+    <slot />
+  </div>
 </div>
-<slot />
 
 <style lang="scss">
-  @import "../style/main.scss";
-  a {
-    color: $black;
-  }
-
-  .tags {
+  .post {
     display: grid;
-
-    .tag {
-      margin: 0.25em;
-      border: dotted 1px #a1a1a1;
-      border-radius: 0.5em;
-      padding: 0.5em 1em;
-      font-size: 1.15em;
-      background-color: #f8fcfd;
+    justify-content: center;
+    &__box {
+      line-height: 24px;
     }
   }
 </style>

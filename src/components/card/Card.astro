@@ -1,6 +1,4 @@
 ---
-import { getCollection } from "astro:content";
-
 const allPosts = Object.values(
   await import.meta.glob("../../pages/posts/*.md", { eager: true }),
 );
@@ -15,21 +13,16 @@ const allPosts = Object.values(
             <h3>{post.frontmatter.title}</h3>
           </div>
           <div class="cardBox__date">
-            <p>{post.frontmatter.pubDate.toString().slice(0, 10)}</p>
+            <p>{post.frontmatter.date.toString().slice(0, 10)}</p>
           </div>
           <div class="cardBox__par">
-            <p>{post.frontmatter.description}</p>
-            <a href={post.url}>Here!</a>
+            <p>{post.frontmatter.text}</p>
+            <a class="link" href={post.url}>
+              View the entire post!
+            </a>
           </div>
         </div>
       </div>
     ))
   }
 </div>
-
-<style lang="scss">
-  button {
-    width: 50px;
-    height: 30px;
-  }
-</style>

@@ -1,0 +1,37 @@
+---
+import "../style/main.scss";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/footer/Footer.astro";
+
+const allPosts = Object.values(
+  await import.meta.glob("./posts/*.md", { eager: true }),
+);
+---
+
+<Header />
+<Hero />
+<div class="articleBox">
+  <div class="article">
+    <img class="img" />
+    {
+      allPosts.map((post: any) => (
+        <div class="info">
+          <div class="info__parBox">
+           
+          </div>
+          {/* <img class="img2" /> */}
+          <div class="info__parBox">
+            
+          </div>
+          <div class="info__title">
+          </div>
+          <div class="info__parBox">
+           
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+<Footer />
