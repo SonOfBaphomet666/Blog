@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+// import Layout from "../../layouts/Layout.astro";
 const allPosts = Object.values(
   import.meta.glob("../posts/*.md", { eager: true }),
 );
@@ -9,19 +9,18 @@ const tags = [
 const pageTitle = "Tag index";
 ---
 
-<!-- This tags filter -->
-<Layout pageTitle={pageTitle}>
+<!-- This tags filter --><!-- <Layout pageTitle={pageTitle}> -->
   <h1>{pageTitle}</h1>
   <div class="tags">
     {
       tags.map((tag: string) => (
-        <p class="tag">
+        <p class="tags__tag">
           <a href={`/tags/${tag}`}>{tag}</a>
         </p>
       ))
     }
   </div>
-</Layout>
+<!-- </Layout> -->
 
 <style lang="scss">
   @import "../../style/main.scss";
@@ -30,15 +29,18 @@ const pageTitle = "Tag index";
   }
 
   .tags {
-    display: grid;
+    display: flex;
 
-    .tag {
+    &__tag {
       margin: 0.25em;
       border: dotted 1px #a1a1a1;
       border-radius: 0.5em;
       padding: 0.5em 1em;
       font-size: 1.15em;
       background-color: #f8fcfd;
+      a {
+        text-decoration: none;
+      }
     }
   }
 </style>

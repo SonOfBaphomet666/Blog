@@ -4,18 +4,16 @@ const { frontmatter } = Astro.props;
 ---
 
 <div class="post">
-  <h1>{frontmatter.title}</h1>
   <div class="post__box">
+    <h1>{frontmatter.title}</h1>
     <slot />
   </div>
 </div>
 
 <style lang="scss">
   .post {
-    display: grid;
-    justify-content: center;
     &__box {
-      line-height: 24px;
+      margin-top: 40px;
     }
   }
 </style>
