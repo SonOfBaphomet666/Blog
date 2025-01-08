@@ -1,17 +1,11 @@
 ---
-export function getStaticPaths() {
-  const allPosts = Object.values(
-    import.meta.glob("../posts/*.md", { eager: true }),
-  );
+export async function getStaticPaths() {
+  const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
 
-  const uniqueTags = [
-    ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
-  ];
+  const uniqueTags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post: any) =>
-      post.frontmatter.tags?.includes(tag),
-    );
+    const filteredPosts = allPosts.filter((post: any) => post.frontmatter.tags.includes(tag));
     return {
       params: { tag },
       props: { posts: filteredPosts },
@@ -25,12 +19,8 @@ const { posts } = Astro.props;
 
 <!-- This is details tags -->
 <p>Posts tagged with {tag}</p>
-<ul>
   {
     posts.map((post: any) => {
-      <li>
         <a href={post.url}>{post.frontmatter.title}</a>
-      </li>;
     })
   }
-</ul>

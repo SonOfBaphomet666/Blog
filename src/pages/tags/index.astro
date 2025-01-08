@@ -14,9 +14,9 @@ const pageTitle = "Tag index";
   <div class="tags">
     {
       tags.map((tag: string) => (
-        <p class="tags__tag">
+        <button class="tags__tag">
           <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
+        </button>
       ))
     }
   </div>

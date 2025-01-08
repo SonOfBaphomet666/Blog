@@ -1,0 +1,63 @@
+<button id="filterBreak">Break</button>
+<button id="filterProg">Prog</button>
+<button id="filterAll">All</button>
+<div id="postsContainer" class="card"></div>
+
+<script>
+  import { isActive } from "../../store/store";
+
+  // Все посты импортируются
+  const allPosts = Object.values(
+    import.meta.glob("../../pages/posts/*.md", { eager: true }),
+  );
+
+  let displayedPosts = [...allPosts];
+
+  function renderPosts(posts: any) {
+    const postsContainer = document.getElementById("postsContainer");
+    postsContainer.innerHTML = "";
+    posts.forEach((post: any) => {
+      const postElement = document.createElement("div");
+      postElement.classList.add("cardBox");
+      postElement.innerHTML = `
+        <div class="cardBox__box">
+          <div class="cardBox__title">
+            <h3>${post.frontmatter.title}</h3>
+          </div>
+          <div class="cardBox__date">
+            <p>${new Date(post.frontmatter.date).toLocaleDateString()}</p>
+          </div>
+          <div class="cardBox__par">
+            <p>${post.frontmatter.excerpt || post.frontmatter.text}</p>
+            <a class="link" href="${post.url}">View the entire post!</a>
+          </div>
+        </div>
+      `;
+      postsContainer.appendChild(postElement);
+    });
+  }
+
+  function filter(tag) {
+    isActive.set(true);
+
+    displayedPosts = allPosts.filter((post) =>
+      post.frontmatter?.tags?.includes(tag),
+    );
+
+    console.log(displayedPosts);
+
+    renderPosts(displayedPosts);
+  }
+
+  document.getElementById("filterBreak").addEventListener("click", () => {
+    filter("breakdance");
+  });
+  document.getElementById("filterProg").addEventListener("click", () => {
+    filter("programming");
+  });
+  document.getElementById("filterAll").addEventListener("click", () => {
+    renderPosts(allPosts);
+  });
+
+  renderPosts(displayedPosts);
+</script>

@@ -1,8 +1,8 @@
 ---
 layout: "../../layouts/PostLayout.astro"
-title: "My First Blog Post"
+title: "My five Blog Post"
 date: 2022-07-01
-tags: ["breakdance"]
+tags: ["programming"]
 ---
 
 ## Introduction

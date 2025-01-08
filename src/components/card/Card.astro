@@ -1,12 +1,21 @@
----
-const allPosts = Object.values(
-  await import.meta.glob("../../pages/posts/*.md", { eager: true }),
-);
----
+<!-- ---
+import FilterBtn from '../button/filterBtn.jsx';
+import Button from "../button/Button.astro";
 
+const allPosts = Object.values(
+  import.meta.glob("../../pages/posts/*.md", { eager: true }),
+);
+const filteredPosts = allPosts.filter((post: any, tag) =>
+  post.frontmatter.tags?.includes(tag),
+);
+
+const { tag } = Astro.params;
+---
+<FilterBtn posts={allPosts} client:load />
+<Button />
 <div class="card">
   {
-    allPosts.map((post: any) => (
+    filteredPosts.map((post: any) => (
       <div class="cardBox">
         <div class="cardBox__box">
           <div class="cardBox__title">
@@ -25,4 +34,4 @@ const allPosts = Object.values(
       </div>
     ))
   }
-</div>
+</div> -->

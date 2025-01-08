@@ -1,6 +1,12 @@
 ---
+import FilterBtn from "../../components/button/filterBtn";
 import Hero from "../../components/Hero.astro";
 import Card from "../../components/card/Card.astro";
+
+// Загружаем все посты
+const allPosts = Object.values(
+  import.meta.glob("../../pages/posts/*.md", { eager: true })
+);
 ---
 
 <Hero />
@@ -16,4 +22,5 @@ import Card from "../../components/card/Card.astro";
     </p>
   </div>
 </div>
+<FilterBtn posts={allPosts} client:load />
 <Card />
