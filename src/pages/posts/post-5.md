@@ -2,7 +2,7 @@
 layout: "../../layouts/PostLayout.astro"
 title: "My five Blog Post"
 date: 2022-07-01
-tags: ["programming"]
+tags: ["programming", "all"]
 ---
 
 ## Introduction
