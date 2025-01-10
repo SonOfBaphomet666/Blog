@@ -1,34 +1,34 @@
 import { useState, useEffect } from "react";
 
-const CardReact = ({ posts = [] }) => {
-  const [selectedTag, setSelectedTag] = useState(null);
+const CardReact = ({ posts }) => {
+  const [selectedTag, setSelectedTag] = useState("all");
 
-//   useEffect(() => {
-//     const savedTag = localStorage.getItem("selectedTag");
-//     if (savedTag) {
-//       setSelectedTag(savedTag);
-//     }
-//   }, []);
+  useEffect(() => {
+    const savedTag = localStorage.getItem("selectedTag");
+    console.log("Saved Tag:", savedTag);
+    if (savedTag) {
+      setSelectedTag(savedTag);
+    }
+  }, []);
 
   const filterPosts = (tag) => {
     setSelectedTag(tag);
-    // localStorage.setItem("selectedTag", tag);
+    localStorage.setItem("selectedTag", tag);
   };
 
-  const filteredPosts = selectedTag
-  ? posts.filter((post) => post.frontmatter.tags?.includes(selectedTag))
-  : posts;
-  console.log(posts);
-  
+  const filteredPosts =
+    selectedTag === "all"
+      ? posts
+      : posts.filter((post) => post.frontmatter.tags?.includes(selectedTag));
+  console.log("Filtered Posts:", filteredPosts);
 
   return (
     <div>
-      <div>
+      <div className="buttonBox">
         <button onClick={() => filterPosts("breakdance")}>Breakdance</button>
         <button onClick={() => filterPosts("programming")}>Programming</button>
-        <button onClick={() => filterPosts(null)}>Show All</button>
+        <button onClick={() => filterPosts("all")}>All</button>
       </div>
-
       <div className="card">
         {filteredPosts.map((post) => (
           <div className="cardBox" key={post.frontmatter.title}>
