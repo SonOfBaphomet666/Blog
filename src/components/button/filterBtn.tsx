@@ -1,26 +1,57 @@
 import { useState, useEffect } from "react";
 
+interface Post {
+  frontmatter: {
+    title: string;
+    date: Date;
+    text: string;
+    tags?: string[];
+  };
+  url: string;
+}
+
+interface CardReact {
+  posts: Post[];
+}
+
 const CardReact = ({ posts }) => {
-  const [selectedTag, setSelectedTag] = useState("all");
+  const allPosts: Post[] = Object.values(
+    import.meta.glob("../../pages/posts/*.md", { eager: true }),
+  ) as Post[];
+  
+  const [selectedTag, setSelectedTag] = useState<string>("all");
+  const [visibleData, setVisibleData] = useState<number>(5);
+
+  const handleLoadMore = () => {
+    setVisibleData((prevCount) => prevCount + 5);
+  };
 
   useEffect(() => {
     const savedTag = localStorage.getItem("selectedTag");
-    console.log("Saved Tag:", savedTag);
     if (savedTag) {
       setSelectedTag(savedTag);
     }
   }, []);
 
-  const filterPosts = (tag) => {
+  const filterPosts = (tag: string) => {
     setSelectedTag(tag);
     localStorage.setItem("selectedTag", tag);
+    setVisibleData(5);
   };
 
   const filteredPosts =
     selectedTag === "all"
-      ? posts
-      : posts.filter((post) => post.frontmatter.tags?.includes(selectedTag));
-  console.log("Filtered Posts:", filteredPosts);
+      ? allPosts.slice(0, visibleData)
+      : allPosts
+          .filter((post) => post.frontmatter.tags?.includes(selectedTag))
+          .slice(0, visibleData);
+
+  const hasMorePosts =
+    filteredPosts.length <
+    (selectedTag === "all"
+      ? allPosts.length
+      : allPosts.filter((post) => post.frontmatter.tags?.includes(selectedTag))
+          .length);
 
   return (
     <div>
@@ -48,6 +79,13 @@ const CardReact = ({ posts }) => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="loadMoreBox">
+        {hasMorePosts ? (
+          <button onClick={handleLoadMore}>Load More</button>
+        ) : (
+          <p>No more posts available.</p>
+        )}
       </div>
     </div>
   );

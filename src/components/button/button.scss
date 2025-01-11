@@ -1,9 +1,16 @@
 .buttonBox {
-  width: 1024px;
+  max-width: 1024px;
   display: flex;
   justify-content: flex-end;
   gap: 30px;
   margin-bottom: 30px;
+}
+
+.loadMoreBox {
+  max-width: 1024px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 button {
