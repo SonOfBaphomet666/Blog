@@ -20,13 +20,14 @@ nav {
 
     &__linkBox {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       text-align: center;
       align-items: center;
       width: 350px;
       height: 65px;
       grid-column: 4;
       .link {
+        max-width: 70px;
         color: $black;
         font-size: 20px;
         text-decoration: none;

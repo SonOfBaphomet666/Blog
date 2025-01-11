@@ -2,14 +2,16 @@ footer {
   display: grid;
   justify-content: center;
   background-color: #40534c;
-  height: 250px;
+  height: 220px;
   @media screen and (max-width: $phone-big) {
     height: 150px;
   }
 }
 
 .footerBox {
-  width: 500px;
+  max-width: 500px;
+  height: 130px;
+  margin-top: 20px;
   &__social {
     display: grid;
     justify-content: center;
